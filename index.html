@@ -710,7 +710,7 @@ footer {
             </div>
             <button class="copy-ip-button" type="button" onclick="copyServerIP()" aria-label="Copy server IP">COPY</button>
             <div class="online-widget" title="Live server player status">
-                <span class="online-dot"></span><strong id="onlinePlayers">430</strong><small>ONLINE</small>
+                <span class="online-dot"></span><strong id="onlinePlayers">https://api.mcsrvstat.us/3/play.kohinoor.fun</strong><small>ONLINE</small>
             </div>
         </div>
         <a class="discord-icon" href="https://discord.gg/P9Zhz4mqz7" target="_blank" rel="noopener noreferrer" aria-label="Join Kohinoor Discord" title="Join Discord">
@@ -1095,7 +1095,7 @@ function getItemIcon(mode) {
 function getPlayerPoints(player) {
     if (currentMode === "Overall") return Number(player.points) || 0;
     const tier = String((player.tiers && player.tiers[currentMode]) || "-").toUpperCase();
-    const tierPoints = { HT1: 1000, LT1: 900, HT2: 800, LT2: 700, HT3: 600, MT3: 550, LT3: 500, HT4: 400, MT4: 350, LT4: 300, HT5: 200, LT5: 100 };
+    const tierPoints = { HT1: 600, LT1: 550, HT2: 500, LT2: 450, HT3: 400, MT3: 350, LT3: 300, HT4: 250, MT4: 200, LT4: 150, HT5: 100, LT5: 50 };
     return tierPoints[tier] || 0;
 }
 function refreshOnlinePlayers() {
