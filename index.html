@@ -1095,7 +1095,7 @@ function getItemIcon(mode) {
 function getPlayerPoints(player) {
     if (currentMode === "Overall") return Number(player.points) || 0;
     const tier = String((player.tiers && player.tiers[currentMode]) || "-").toUpperCase();
-    const tierPoints = { HT1: 1000, MT1: 900, LT1: 550, HT2: 500, MT2: 450, LT2: 300, HT3: 4, MT3: 350, LT3: 300, HT4: 250, MT4: 200, LT4: 150, HT5: 100, MT LT5: 50 };
+    const tierPoints = { HT1: 1000, MT1: 900, LT1: 800, HT2: 700, MT2: 600, LT2: 500, HT3: 450, MT3: 400, LT3: 350, HT4: 300, MT4: 250, LT4: 200, HT5: 150, MT5: 100, LT5: 50 };
     return tierPoints[tier] || 0;
 }
 function refreshOnlinePlayers() {
