@@ -15,7 +15,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>IgnisMC Tiers</title>
+<title>IgnisMC Tiers | Official Minecraft PvP Leaderboard</title>
 
 <link rel="icon" href="tier.png">
 <meta name="description" content="IgnisMC Tiers | Minecraft PvP rankings, player tiers, leaderboards and statistics.">
@@ -37,45 +37,46 @@ html {
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #0d0b0e;
+    background: #090513;
     color: #f5f5f5;
     min-height: 100vh;
 }
 
 /* =========================================================
-   VARIABLES (Dark + Orange & Gold Accent)
+   VARIABLES (Vibrant Purple & Neon Cyan Theme)
 ========================================================= */
 
 :root {
-    --bg: #0d0b0e;
-    --panel: #18131d;
-    --panel2: #221a2a;
-    --border: #3d271d;
+    --bg: #090513;
+    --panel: #130d22;
+    --panel2: #1b1230;
+    --border: #34234f;
     --text: #ffffff;
-    --muted: #a095a8;
-    --accent: #ff6b00; /* Ignis Orange */
-    --accent-gold: #ffb700; /* Gold */
+    --muted: #8d93a3;
+    --accent: #9868ff;
+    --accent-glow: rgba(152, 104, 255, 0.4);
+    --gold: #ffd166;
 }
 
 /* =========================================================
-   NAVBAR (Centered Links & Gold Accents)
+   NAVBAR
 ========================================================= */
 
 .navbar {
     min-height: 82px;
     width: 100%;
-    background: rgba(13, 11, 14, 0.95);
-    border-bottom: 1px solid rgba(255, 107, 0, 0.3);
+    background: rgba(9, 5, 19, 0.94);
+    border-bottom: 1px solid rgba(160, 115, 255, .22);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 22px;
     padding: 12px 3.5%;
     position: sticky;
     top: 0;
     z-index: 1000;
     backdrop-filter: blur(18px);
-    box-shadow: 0 8px 35px rgba(255, 107, 0, 0.1);
+    box-shadow: 0 8px 35px rgba(0,0,0,.22);
 }
 
 .logo {
@@ -88,57 +89,57 @@ body {
 }
 
 .logo-wordmark {
-    background: linear-gradient(100deg, #ffffff 0%, #ffb700 40%, #ff6b00 100%);
+    background: linear-gradient(100deg, #fff3bf 0%, #ffd166 25%, #c7a5ff 58%, #69ddff 88%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    filter: drop-shadow(0 0 12px rgba(255,107,0,.35));
+    filter: drop-shadow(0 0 12px rgba(167,139,250,.24));
 }
 
 .logo-box {
     width: 34px;
     height: 34px;
     border-radius: 11px;
-    background: linear-gradient(135deg, #ffb700, #ff6b00 60%, #900c3f);
+    background: linear-gradient(135deg, #ffd166, #9b6cff 55%, #42d8ff);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 1000;
     color: #fff;
-    box-shadow: 0 0 25px rgba(255,107,0,.5);
+    box-shadow: 0 0 28px rgba(124,92,255,.48);
 }
 
-/* Centered Navigation Menu with Smooth Underline */
+/* Centered Links with Underline Animation */
 .nav-links {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: clamp(16px, 2.5vw, 36px);
+    gap: clamp(16px, 2.2vw, 32px);
     flex: 1;
 }
 
 .nav-links a {
     position: relative;
-    color: #dcd3e3;
+    color: #d2c8e8;
     text-decoration: none;
     font-size: 16px;
     font-weight: 800;
-    letter-spacing: .3px;
-    padding: 10px 4px;
-    transition: color .25s ease, transform .25s ease;
+    letter-spacing: .2px;
+    padding: 10px 2px;
+    transition: color .25s ease, transform .25s ease, text-shadow .25s ease;
 }
 
 .nav-links a::after {
     content: "";
     position: absolute;
     left: 50%;
-    bottom: 0px;
+    bottom: 2px;
     width: 0%;
-    height: 3px;
+    height: 2px;
     border-radius: 2px;
-    background: linear-gradient(90deg, #ffb700, #ff6b00);
-    box-shadow: 0 0 12px #ff6b00;
-    transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(90deg, #a78bfa, #69ddff);
+    box-shadow: 0 0 12px #9b6cff;
+    transition: all .28s ease;
     transform: translateX(-50%);
 }
 
@@ -149,11 +150,10 @@ body {
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(255, 183, 0, 0.5);
+    color: white;
+    text-shadow: 0 0 8px rgba(167, 139, 250, 0.6);
 }
 
-/* Header Actions & Flag Indicator */
 .header-actions { 
     display: flex; 
     align-items: center; 
@@ -161,16 +161,13 @@ body {
     position: relative;
 }
 
-.country-flag {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px 10px;
-    background: rgba(255, 107, 0, 0.1);
-    border: 1px solid rgba(255, 183, 0, 0.3);
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: default;
+.mode-item { 
+    width: 29px;
+    height: 29px;
+    object-fit: contain;
+    vertical-align: middle;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 7px rgba(167,139,250,.35)); 
 }
 
 .online-widget { 
@@ -178,7 +175,7 @@ body {
     align-items: center;
     gap: 5px;
     padding: 6px 8px;
-    border-left: 1px solid rgba(255, 107, 0, 0.25);
+    border-left: 1px solid rgba(167,139,250,.22);
     white-space: nowrap; 
 }
 
@@ -188,7 +185,7 @@ body {
 }
 
 .online-widget small { 
-    color: #a095a8;
+    color: #9d91b8;
     font-size: 8px;
     font-weight: 900;
     letter-spacing: .7px; 
@@ -207,10 +204,10 @@ body {
     align-items: center; 
     gap: 11px; 
     padding: 9px 10px 9px 12px;
-    border: 1px solid rgba(255,107,0,.4); 
+    border: 1px solid rgba(167,139,250,.35); 
     border-radius: 13px;
-    background: linear-gradient(125deg,rgba(255,107,0,.15),rgba(24,19,29,.95));
-    box-shadow: 0 0 24px rgba(255,107,0,.12);
+    background: linear-gradient(125deg,rgba(113,66,190,.22),rgba(21,12,39,.94));
+    box-shadow: 0 0 24px rgba(130,79,255,.13), inset 0 0 20px rgba(167,139,250,.04);
 }
 
 .server-glow-icon {
@@ -219,10 +216,10 @@ body {
     display: grid;
     place-items: center;
     border-radius: 10px;
-    color: #ffffff;
-    font-size: 18px;
-    background: linear-gradient(135deg,#ffb700,#ff6b00);
-    box-shadow: 0 0 18px rgba(255,107,0,.6);
+    color: #fff0b5;
+    font-size: 22px;
+    background: linear-gradient(135deg,#9b6cff,#4b2c82);
+    box-shadow: 0 0 17px rgba(167,139,250,.65),0 0 28px rgba(124,92,255,.3);
     animation: serverPulse 2.8s ease-in-out infinite;
 }
 
@@ -234,7 +231,7 @@ body {
 }
 
 .server-caption { 
-    color: #ffb700;
+    color: #a99ac8;
     font-size: 9px;
     font-weight: 900;
     letter-spacing: 1.15px; 
@@ -247,11 +244,11 @@ body {
 }
 
 .copy-ip-button {
-    border: 1px solid rgba(255,183,0,.5);
+    border: 1px solid rgba(196,166,255,.4);
     border-radius: 8px;
     padding: 8px 10px;
     color: #fff;
-    background: linear-gradient(135deg,#ff6b00,#cc5200);
+    background: linear-gradient(135deg,#8b5cf6,#6d3fd6);
     font-size: 10px;
     font-weight: 900;
     letter-spacing: .5px;
@@ -261,7 +258,7 @@ body {
 
 .copy-ip-button:hover { 
     transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 0 18px rgba(255,107,0,.6); 
+    box-shadow: 0 0 18px rgba(167,139,250,.55); 
 }
 
 .discord-icon { 
@@ -271,7 +268,7 @@ body {
     place-items: center;
     border-radius: 12px;
     color: #fff;
-    background: linear-gradient(135deg,#5865f2,#ff6b00);
+    background: linear-gradient(135deg,#5865f2,#7c4dff);
     box-shadow: 0 0 20px rgba(88,101,242,.3);
     transition: transform .25s,box-shadow .25s; 
 }
@@ -283,24 +280,24 @@ body {
 
 .discord-icon:hover { 
     transform: scale(1.1) rotate(-3deg);
-    box-shadow: 0 0 28px rgba(255,107,0,.7); 
+    box-shadow: 0 0 28px rgba(120,105,255,.75); 
 }
 
 .copy-status { 
     position: absolute;
-    right: 155px;
+    right: 110px;
     top: calc(100% + 4px);
     font-size: 11px;
-    color: #ffb700; 
+    color: #c4b5fd; 
 }
 
 @keyframes serverPulse { 
-    0%,100% { box-shadow:0 0 14px rgba(255,107,0,.45); } 
-    50% { box-shadow:0 0 25px rgba(255,183,0,.85); } 
+    0%,100% { box-shadow:0 0 14px rgba(167,139,250,.45); } 
+    50% { box-shadow:0 0 25px rgba(167,139,250,.85),0 0 35px rgba(124,92,255,.4); } 
 }
 
 /* =========================================================
-   HERO
+   HERO & EVENTS SECTION
 ========================================================= */
 
 .hero {
@@ -315,7 +312,7 @@ body {
 }
 
 .gradient-text {
-    background: linear-gradient(90deg, #ffffff, #ffb700 50%, #ff6b00);
+    background: linear-gradient(90deg, #fff, #a992ff 50%, #69ddff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -328,6 +325,42 @@ body {
     font-size: 15px;
 }
 
+.events-banner {
+    max-width: 1100px;
+    margin: 20px auto 0;
+    background: linear-gradient(135deg, rgba(152, 104, 255, 0.15), rgba(19, 13, 34, 0.9));
+    border: 1px solid rgba(167, 139, 250, 0.3);
+    border-radius: 16px;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: 0 0 30px rgba(152, 104, 255, 0.1);
+}
+
+.event-details h3 {
+    color: #ffd166;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.event-details p {
+    font-size: 13px;
+    color: #d2c8e8;
+}
+
+.event-timer {
+    background: #090513;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    font-weight: 900;
+    color: #69ddff;
+    letter-spacing: 1px;
+}
+
 /* =========================================================
    STATS
 ========================================================= */
@@ -335,7 +368,7 @@ body {
 .stats {
     width: 88%;
     max-width: 1100px;
-    margin: 25px auto 40px;
+    margin: 30px auto 40px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
@@ -353,7 +386,7 @@ body {
     display: block;
     font-size: 26px;
     margin-bottom: 5px;
-    color: var(--accent-gold);
+    color: #c7a5ff;
 }
 
 .stat span {
@@ -362,7 +395,7 @@ body {
 }
 
 /* =========================================================
-   MAIN
+   MAIN CONTENT
 ========================================================= */
 
 .container {
@@ -388,9 +421,9 @@ body {
 }
 
 .mode {
-    border: 1px solid rgba(255,107,0,.3);
-    background: linear-gradient(135deg, #221a2a, #18131d);
-    color: #e5daee;
+    border: 1px solid rgba(167,139,250,.28);
+    background: linear-gradient(135deg, #1b1230, #130d22);
+    color: #d4c4f7;
     padding: 12px 18px;
     border-radius: 10px;
     cursor: pointer;
@@ -404,10 +437,10 @@ body {
 
 .mode:hover,
 .mode.active {
-    background: linear-gradient(135deg, #ffb700, #ff6b00);
-    border-color: #ffb700;
-    color: #0d0b0e;
-    box-shadow: 0 0 15px rgba(255,107,0,.4);
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    box-shadow: 0 0 16px rgba(152, 104, 255, 0.4);
 }
 
 /* =========================================================
@@ -456,24 +489,24 @@ body {
     align-items:end;
     gap:14px;
     padding:20px 16px 0;
-    border:1px solid #3d271d;
+    border:1px solid #392653;
     border-radius:17px;
     overflow:hidden;
-    background:radial-gradient(circle at 50% 0%,rgba(255,107,0,.15),transparent 50%),rgba(24,19,29,.95); 
+    background:radial-gradient(circle at 50% 0%,rgba(167,139,250,.13),transparent 48%),rgba(19,13,34,.92); 
 }
 
 .podium-card { text-align:center; min-width:0; padding:15px 9px 0; border:1px solid transparent; border-radius:14px 14px 0 0; transition:transform .25s,filter .25s; }
 .podium-card:hover { transform:translateY(-5px) scale(1.015); filter:brightness(1.12); }
-.podium-card.first { order:2; min-height:255px; border-color:rgba(255,183,0,.5); background:linear-gradient(180deg,rgba(255,183,0,.18),rgba(255,107,0,.03)); }
+.podium-card.first { order:2; min-height:255px; border-color:rgba(255,209,102,.4); background:linear-gradient(180deg,rgba(255,209,102,.16),rgba(255,209,102,.025)); }
 .podium-card.second { order:1; min-height:218px; border-color:rgba(220,230,245,.25); background:linear-gradient(180deg,rgba(210,220,235,.11),rgba(210,220,235,.02)); }
 .podium-card.third { order:3; min-height:198px; border-color:rgba(205,127,50,.3); background:linear-gradient(180deg,rgba(205,127,50,.12),rgba(205,127,50,.02)); }
 
 .podium-medal { font-size:52px; line-height:1; margin:0 auto 8px; font-weight:1000; font-style:italic; letter-spacing:-4px; }
-.podium-card.first .podium-medal { color:#ffe9a3; background:linear-gradient(180deg,#fff8cf 0%,#ffd166 32%,#b87912 60%,#fff0a1 78%,#94600d 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(0 3px 0 #5b3b0b); }
+.podium-card.first .podium-medal { color:#ffe9a3; background:linear-gradient(180deg,#fff8cf 0%,#ffd166 32%,#b87912 60%,#fff0a1 78%,#94600d 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(0 3px 0 #5b3b0b) drop-shadow(0 0 8px rgba(255,209,102,.45)); }
 .podium-card.second .podium-medal { color:#f7fbff; background:linear-gradient(180deg,#fff 0%,#e7edf5 25%,#9da9ba 52%,#f8fbff 72%,#737e90 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(0 3px 0 #414958); }
 .podium-card.third .podium-medal { color:#ffcf9e; background:linear-gradient(180deg,#ffe0bd 0%,#cd7f32 35%,#8a4a1b 60%,#f5b777 78%,#6b3814 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(0 3px 0 #4f2a11); }
 
-.podium-skin { display:block; width:84px; height:100px; object-fit:contain; object-position:center bottom; margin:0 auto 6px; image-rendering:pixelated; filter:drop-shadow(0 5px 12px rgba(0,0,0,.4)); }
+.podium-skin { display:block; width:84px; height:100px; object-fit:contain; object-position:center bottom; margin:0 auto 6px; image-rendering:pixelated; filter:drop-shadow(0 5px 12px rgba(0,0,0,.35)); }
 .podium-name { font-size:13px; font-weight:900; overflow-wrap:anywhere; }
 .podium-points { margin-top:6px; color:var(--muted); font-size:12px; }
 .podium-tier { display:inline-flex; margin-top:9px; padding:5px 8px; border-radius:6px; font-size:11px; font-weight:900; }
@@ -503,7 +536,7 @@ body {
 
 .table-head {
     padding: 15px 20px;
-    color: #83768f;
+    color: #707687;
     font-size: 11px;
     text-transform: uppercase;
     font-weight: 800;
@@ -512,7 +545,7 @@ body {
 
 .player {
     padding: 17px 20px;
-    border-bottom: 1px solid #231a2c;
+    border-bottom: 1px solid #1b1e27;
     transition: .2s;
 }
 
@@ -521,12 +554,12 @@ body {
 }
 
 .player:hover {
-    background: #221a2a;
+    background: #1b1230;
 }
 
 .rank {
     font-size: 14px;
-    color: #9d8ea8;
+    color: #858b9a;
     font-weight: 800;
 }
 
@@ -540,7 +573,7 @@ body {
     width: 42px;
     height: 42px;
     border-radius: 8px;
-    background: #281e33;
+    background: #20232e;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -561,7 +594,6 @@ body {
 
 .points {
     font-weight: 800;
-    color: var(--accent-gold);
 }
 
 .tier {
@@ -575,23 +607,23 @@ body {
     font-weight: 900;
 }
 
-.player.rank-1 { background:linear-gradient(90deg,rgba(255,183,0,.15),rgba(255,107,0,.02) 70%,transparent); }
+.player.rank-1 { background:linear-gradient(90deg,rgba(255,209,102,.12),rgba(255,209,102,.025) 70%,transparent); }
 .player.rank-2 { background:linear-gradient(90deg,rgba(220,230,245,.10),rgba(220,230,245,.02) 70%,transparent); }
 .player.rank-3 { background:linear-gradient(90deg,rgba(205,127,50,.11),rgba(205,127,50,.02) 70%,transparent); }
 
 .rank-mark { display:inline-grid; place-items:center; min-width:28px; height:28px; border-radius:8px; font-weight:1000; }
-.rank-1 .rank-mark { color:#2a1b04; background:linear-gradient(135deg,#fff1ad,#e6a72b,#fff1ad); box-shadow:0 0 14px rgba(255,183,0,.4); }
+.rank-1 .rank-mark { color:#2a1b04; background:linear-gradient(135deg,#fff1ad,#e6a72b,#fff1ad); box-shadow:0 0 14px rgba(255,209,102,.3); }
 .rank-2 .rank-mark { color:#1b2230; background:linear-gradient(135deg,#fff,#a9b4c5,#f6f8ff); }
 .rank-3 .rank-mark { color:#2a1708; background:linear-gradient(135deg,#ffd1a0,#b76b2a,#f2bd80); }
 
-.skin-head { object-fit:cover; image-rendering:pixelated; border:1px solid rgba(255,107,0,.4); box-shadow:0 0 12px rgba(255,107,0,.2); border-radius: 6px; }
+.skin-head { object-fit:cover; image-rendering:pixelated; border:1px solid rgba(167,139,250,.35); box-shadow:0 0 12px rgba(124,92,255,.18); border-radius: 6px; }
 
 /* =========================================================
    TIER COLORS
 ========================================================= */
 
-.HT1, .MT1, .LT1 { background: #ff6b00; color: white; }
-.HT2, .MT2, .LT2 { background: #ffb700; color: #0d0b0e; }
+.HT1, .MT1, .LT1 { background: #b26cff; color: white; }
+.HT2, .MT2, .LT2 { background: #26b9e8; color: #071016; }
 .HT3, .MT3, .LT3 { background: #e3aa3e; color: #161005; }
 .HT4, .MT4, .LT4 { background: #a7aeb8; color: #111318; }
 .HT5, .MT5, .LT5 { background: #795d4c; color: white; }
@@ -619,7 +651,6 @@ body {
 
 .tier-card h3 {
     margin-bottom: 8px;
-    color: var(--accent-gold);
 }
 
 .tier-card p {
@@ -666,7 +697,7 @@ footer {
 }
 
 .footer-links a:hover {
-    color: var(--accent-gold);
+    color: white;
 }
 
 /* =========================================================
@@ -711,28 +742,23 @@ footer {
 <!-- NAVBAR -->
 <header class="navbar">
     <div class="logo">
-        <div class="logo-box">🔥</div>
+        <div class="logo-box">🏆</div>
         <span class="logo-wordmark">IGNISMC TIERS</span>
     </div>
 
-    <!-- Centered Navigation Menu -->
+    <!-- Centered Links -->
     <nav class="nav-links">
         <a href="#" class="active">Home</a>
         <a href="#tiers">Tiers</a>
         <a href="#players">Players</a>
+        <a href="#events">Events</a>
         <a href="#about">About</a>
     </nav>
 
     <div class="header-actions">
         <span class="copy-status" id="copyStatus" role="status" aria-live="polite"></span>
-        
-        <!-- Country Flag Indicator -->
-        <div class="country-flag" title="Server Region: India">
-            🇮🇳
-        </div>
-
         <div class="header-server">
-            <span class="server-glow-icon" aria-hidden="true">⚔</span>
+            <span class="server-glow-icon" aria-hidden="true">♦</span>
             <div class="header-server-copy">
                 <span class="server-caption">MINECRAFT SERVER</span>
                 <strong id="serverIpText">play.ignismc.fun</strong>
@@ -752,6 +778,17 @@ footer {
 <section class="hero">
     <h1><span class="gradient-text">IGNISMC PvP Tiers</span></h1>
     <p>Official Minecraft PvP rankings, player tiers, leaderboards, and competitive statistics.</p>
+
+    <!-- Upcoming Tournament Event Banner -->
+    <div class="events-banner" id="events">
+        <div class="event-details">
+            <h3>⚔️ Next Event: Sword FFA Tournament</h3>
+            <p>100 players, 1 arena, Sword kits only. Compete for exclusive Discord roles & tier test points!</p>
+        </div>
+        <div class="event-timer">
+            STARTS IN: 02d 09h 07m
+        </div>
+    </div>
 </section>
 
 <!-- STATS -->
@@ -808,7 +845,7 @@ footer {
     <section class="podium-section" aria-labelledby="podiumTitle">
         <div class="podium-heading">
             <h2 class="section-title" id="podiumTitle">Top 3 Players</h2>
-            <p>Current mode: <strong id="podiumMode" style="color: var(--accent-gold);">Overall</strong></p>
+            <p>Current mode: <strong id="podiumMode" style="color: var(--gold);">Overall</strong></p>
         </div>
         <div class="podium" id="podiumList" aria-live="polite"></div>
     </section>
